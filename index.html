@@ -17,7 +17,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- Swiper.js -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <script type="application/ld+json">
 {
@@ -33,7 +32,7 @@
 }
 </script>
 <style>
-:root{--bg:#1a1024;--bg-2:#241636;--surface:#2a1a3d;--line:rgba(212,165,116,.22);--gold:#d4a574;--gold-2:#e8c89a;--purple:#8b6bab;--text:#f2ebf5;--muted:#a89bb8;--radius:20px;--max:1180px;--ease:cubic-bezier(.22,.61,.36,1)}
+:root{--bg:#1a1024;--bg-2:#241636;--surface:#2f1d44;--line:rgba(212,165,116,.22);--gold:#d4a574;--gold-2:#e8c89a;--purple:#8b6bab;--text:#f2ebf5;--muted:#a89bb8;--radius:20px;--max:1180px;--ease:cubic-bezier(.22,.61,.36,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -85,18 +84,15 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 /* ============ SWIPER CAROUSEL ============ */
 .products-head{text-align:center;margin-bottom:44px}
 .products-head h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px}
-.products-head p{color:var(--muted);font-size:16px}
 
 .products-swiper{overflow:visible!important;padding:20px 0 60px!important}
 .products-swiper .swiper-slide{
   width:340px;
   height:auto;
-  transition:transform .5s var(--ease),opacity .5s var(--ease);
-  opacity:.45;
-  transform:scale(.88);
+  transition:transform .5s var(--ease);
+  transform:scale(.92);
 }
 .products-swiper .swiper-slide-active{
-  opacity:1;
   transform:scale(1);
 }
 .products-swiper .swiper-slide-active .product{
@@ -138,7 +134,6 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .modal-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--gold-2);margin-bottom:10px;letter-spacing:.3px}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-weight:600;line-height:1.25;margin-bottom:22px;color:var(--text)}
 .modal-desc{color:#d8cee0;font-size:15.5px;line-height:1.8;white-space:pre-line}
-.modal-desc strong{color:var(--gold-2);font-weight:600}
 .modal-meta{font-size:13px;color:var(--muted);margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:20px;flex-wrap:wrap}
 .modal-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
 .modal-actions .btn{flex:1;min-width:180px}
@@ -211,8 +206,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
   .footer-brand{grid-column:1/-1}
   .about-block,.contacts{padding:50px 26px}
   .article-body{padding:28px 24px}
-  .products-swiper .swiper-slide{width:300px}
-  .products-swiper .swiper-slide{opacity:.35;transform:scale(.82)}
+  .products-swiper .swiper-slide{width:300px;transform:scale(.9)}
   .modal-body{padding:28px 24px 30px}
 }
 @media(max-width:640px){
@@ -311,8 +305,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
   <div class="container">
     <div class="products-head reveal">
       <span class="eyebrow">Услуги и сессии</span>
-      <h2>Выберите свою практику</h2>
-      <p>Крутите карусель или нажмите на карточку — откроется подробное описание</p>
+      <h2>Практики и сессии</h2>
     </div>
   </div>
 
@@ -769,7 +762,6 @@ const PRODUCTS = {
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 15.5l-.4 4.1c.6 0 .9-.3 1.2-.6l2.9-2.8 6 4.4c1.1.6 1.9.3 2.2-1l4-18.8.1-.1c.3-1.5-.5-2.1-1.5-1.7L1.5 9.7c-1.5.6-1.5 1.4-.3 1.8l5.5 1.7L19.4 6c.6-.4 1.1-.2.7.2L9.8 15.5z"/></svg>
 </a>
 
-<!-- Swiper.js -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
@@ -807,7 +799,7 @@ document.querySelectorAll('.article-toggle').forEach(btn => {
   });
 });
 
-// ============ SWIPER КАРУСЕЛЬ ============
+// SWIPER КАРУСЕЛЬ
 const totalSlides = 10;
 const randomStart = Math.floor(Math.random() * totalSlides);
 
@@ -836,7 +828,7 @@ new Swiper('#productsSwiper', {
   },
 });
 
-// ============ МОДАЛКА ============
+// МОДАЛКА
 const overlay = document.getElementById('modalOverlay');
 const modalImg = document.getElementById('modalImg');
 const modalPrice = document.getElementById('modalPrice');
