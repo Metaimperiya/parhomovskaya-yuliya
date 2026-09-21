@@ -79,9 +79,9 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .hero .lead{font-size:17px;color:#d8cee0;max-width:560px;margin-bottom:14px}
 .hero .extra{font-size:15px;color:var(--gold);font-style:italic;margin-bottom:38px}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.portrait{aspect-ratio:4/5;border-radius:var(--radius);position:relative;overflow:hidden;background:linear-gradient(160deg,#2a1a3d,#1a1024);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(139,107,171,.4)}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform .8s var(--ease)}
-.portrait:hover img{transform:scale(1.04)}
+.portrait{border-radius:var(--radius);position:relative;overflow:hidden;background:linear-gradient(160deg,#2a1a3d,#1a1024);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(139,107,171,.4)}
+.portrait img{width:100%;height:auto;display:block;transition:transform .8s var(--ease)}
+.portrait:hover img{transform:scale(1.02)}
 .sec-head{max-width:760px;margin-bottom:60px}
 .sec-head h2{font-size:clamp(32px,4.2vw,52px);margin-bottom:16px}
 .sec-head p{color:var(--muted);font-size:16px}
@@ -94,9 +94,9 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .articles{display:grid;gap:30px}
 .article{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.4s var(--ease)}
 .article:hover{border-color:rgba(212,165,116,.5);box-shadow:0 24px 60px -30px rgba(139,107,171,.3)}
-.article-media{aspect-ratio:16/9;overflow:hidden;background:#1a1024;position:relative}
-.article-media img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .8s var(--ease)}
-.article:hover .article-media img{transform:scale(1.04)}
+.article-media{overflow:hidden;background:#1a1024;position:relative;line-height:0}
+.article-media img{width:100%;height:auto;display:block;transition:transform .8s var(--ease)}
+.article:hover .article-media img{transform:scale(1.02)}
 .article-body{padding:34px 36px}
 .article-body h3{font-size:clamp(22px,2.5vw,30px);margin-bottom:14px;line-height:1.25}
 .article-preview{color:var(--muted);font-size:16px;line-height:1.7}
@@ -143,8 +143,58 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
 .meta-line a:hover{color:var(--gold-2)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.visible{opacity:1;transform:none}
+
+/* ПЛАВАЮЩИЙ КРУЖОК TELEGRAM */
+.tg-bubble{
+  position:fixed;
+  left:22px;
+  bottom:22px;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#39a9de,#2b8cbe);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  z-index:95;
+  box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 0 rgba(57,169,222,.6);
+  animation:tgPulse 2.4s infinite;
+  transition:transform .35s var(--ease);
+}
+.tg-bubble:hover{
+  transform:scale(1.1) translateY(-2px);
+}
+.tg-bubble svg{width:30px;height:30px;fill:#fff}
+.tg-bubble .tip{
+  position:absolute;
+  left:76px;
+  top:50%;
+  transform:translateY(-50%) translateX(-8px);
+  background:#1a1024;
+  color:var(--gold-2);
+  font-size:13px;
+  font-weight:500;
+  padding:9px 16px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s var(--ease);
+}
+.tg-bubble:hover .tip{
+  opacity:1;
+  transform:translateY(-50%) translateX(0);
+}
+@keyframes tgPulse{
+  0%{box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 0 rgba(57,169,222,.55)}
+  70%{box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 18px rgba(57,169,222,0)}
+  100%{box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 0 rgba(57,169,222,0)}
+}
+
 @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:50px}.portrait{max-width:420px;margin:0 auto;width:100%}.nav-links{position:fixed;top:0;right:-100%;width:78%;max-width:340px;height:100vh;background:var(--bg-2);flex-direction:column;padding:100px 40px;gap:24px;transition:.45s var(--ease);border-left:1px solid var(--line)}.nav-links.open{right:0}.nav-links a{font-size:18px;color:var(--text)}.burger{display:block;z-index:110}.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.about-block,.contacts{padding:50px 26px}.article-body{padding:28px 24px}}
-@media(max-width:560px){section{padding:80px 0}.container{padding:0 20px}.hero{padding-top:130px}.footer-grid{grid-template-columns:1fr}.cta-row .btn,.contacts-row .btn{width:100%;justify-content:center}}
+@media(max-width:560px){section{padding:80px 0}.container{padding:0 20px}.hero{padding-top:130px}.footer-grid{grid-template-columns:1fr}.cta-row .btn,.contacts-row .btn{width:100%;justify-content:center}.tg-bubble{left:16px;bottom:16px;width:56px;height:56px}.tg-bubble svg{width:26px;height:26px}.tg-bubble .tip{display:none}}
 </style>
 </head>
 <body>
@@ -190,9 +240,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
           alt="Пархомовская Юлия — Божественный проводник, целитель, энергопрактик Access, регрессолог, кармолог, нумеролог, трансформационный психолог"
           title="Пархомовская Юлия — Божественный проводник"
           loading="eager"
-          decoding="async"
-          width="800"
-          height="1000">
+          decoding="async">
       </div>
     </div>
   </div>
@@ -227,7 +275,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
 
       <article class="article reveal">
         <div class="article-media">
-          <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Божественный проводник — Пархомовская Юлия, энергопрактик Access, целитель, регрессолог, нумеролог, трансформационный психолог" title="Божественный проводник" loading="lazy" decoding="async">
+          <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Пархомовская Юлия — Божественный проводник, энергопрактик Access, целитель, регрессолог, нумеролог, трансформационный психолог" title="Божественный проводник — Пархомовская Юлия" loading="lazy" decoding="async">
         </div>
         <div class="article-body">
           <h3>Божественный проводник: обо мне</h3>
@@ -236,23 +284,11 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
             <p>Работаю с МАК картами (Метафорические ассоциативные карты), провожу Трансформационные игры.</p>
             <p>Я занимаюсь духовным развитием с 13 лет и каждый день продолжаю движение вперёд!</p>
             <p>Если вы верите, что в жизни всё не просто так и не просто так вы оказались на этой страничке, то добро пожаловать в мою группу, подписывайтесь и читайте обновления.</p>
-            <p>Вы готовы изменить свою жизнь к лучшему и жить так как вы давно мечтали?</p>
-            <p>Если да, то я вам помогу, при условии, что вы готовы взять на себя ответственность за собственное счастье и начать двигаться по направлению к лучшей жизни о которой давно мечтали!</p>
+            <p>Вы готовы изменить свою жизнь к лучшему и жить так как вы давно мечтали? Если да, то я вам помогу, при условии, что вы готовы взять на себя ответственность за собственное счастье и начать двигаться по направлению к лучшей жизни о которой давно мечтали!</p>
             <p>Я Божественный проводник, Энергопрактик Access, Целитель, Регрессолог, Нумеролог, Трансформационный психолог и организатор мероприятий в Новороссийске.</p>
-          </div></div>
-          <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
-        </div>
-      </article>
-
-      <article class="article reveal">
-        <div class="article-media">
-          <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Я — Юлия. Я проводник. Иду рядом с теми, кто готов вернуться к себе" title="Я — Юлия. Я проводник" loading="lazy" decoding="async">
-        </div>
-        <div class="article-body">
-          <h3>Я — Юлия. Я иду рядом с теми, кто готов вернуться к себе</h3>
-          <p class="article-preview">Больше 20 лет я работаю с людьми. Я вижу корень там, где другие работают с последствиями. Я чувствую боль, которая передаётся из поколения в поколение…</p>
-          <div class="article-full"><div class="article-full-inner">
-            <p>Я знаю, как это — жить в выживании. И я знаю, как из него выйти.</p>
+            <p>С детства занимаюсь духовным развитием. Больше 20 лет помогаю людям через яснознание, ясновидение и ясночувствование в канале с Высшим Я и высшими силами.</p>
+            <p><strong>Я — Юлия. Я иду рядом с теми, кто готов вернуться к себе.</strong></p>
+            <p>Больше 20 лет я работаю с людьми. Я вижу корень там, где другие работают с последствиями. Я чувствую боль, которая передаётся из поколения в поколение. Я знаю, как это — жить в выживании. И я знаю, как из него выйти.</p>
             <p>Я прошла через многое. Через семью нарциссов, где любовь была болью. Через отношения, где меня обесценивали и использовали. Через потерю себя. Через болезни. Через долги. Через одиночество. Через страхи и нежелание жить.</p>
             <p>Я не сломалась. Я собрала себя заново. По кусочкам. Через терапию, через духовные практики, через честность с собой. Я вернула связь с телом, с душой, с Родом. Я научилась выбирать себя.</p>
             <p><strong>Я работаю с:</strong></p>
@@ -577,12 +613,18 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
   </div>
 </footer>
 
+<!-- Плавающий кружок Telegram -->
+<a href="https://t.me/juliuuya" target="_blank" rel="noopener" class="tg-bubble" aria-label="Написать в Telegram">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 15.5l-.4 4.1c.6 0 .9-.3 1.2-.6l2.9-2.8 6 4.4c1.1.6 1.9.3 2.2-1l4-18.8.1-.1c.3-1.5-.5-2.1-1.5-1.7L1.5 9.7c-1.5.6-1.5 1.4-.3 1.8l5.5 1.7L19.4 6c.6-.4 1.1-.2.7.2L9.8 15.5z"/></svg>
+  <span class="tip">Написать в Telegram</span>
+</a>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => { burger.classList.toggle('open'); navLinks.classList.toggle('open'); });
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); navLinks.classList.remove('open'); }));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); navLinks.classList.remove('open'); });
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
 const io = new IntersectionObserver((entries) => {
