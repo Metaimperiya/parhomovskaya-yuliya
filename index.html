@@ -64,8 +64,6 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(212,165,116,.35)}
 .btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.02)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold-2);transform:translateY(-3px)}
-.btn-tg{background:linear-gradient(135deg,#39a9de,#2b8cbe);color:#fff}
-.btn-tg:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(57,169,222,.35)}
 .hero{padding-top:170px;padding-bottom:110px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-25%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(139,107,171,.25),transparent 62%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,165,116,.15),transparent 60%);pointer-events:none}
@@ -80,8 +78,7 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .hero .extra{font-size:15px;color:var(--gold);font-style:italic;margin-bottom:38px}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 .portrait{border-radius:var(--radius);position:relative;overflow:hidden;background:linear-gradient(160deg,#2a1a3d,#1a1024);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(139,107,171,.4)}
-.portrait img{width:100%;height:auto;display:block;transition:transform .8s var(--ease)}
-.portrait:hover img{transform:scale(1.02)}
+.portrait img{width:100%;height:auto;display:block}
 .sec-head{max-width:760px;margin-bottom:60px}
 .sec-head h2{font-size:clamp(32px,4.2vw,52px);margin-bottom:16px}
 .sec-head p{color:var(--muted);font-size:16px}
@@ -94,9 +91,8 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .articles{display:grid;gap:30px}
 .article{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.4s var(--ease)}
 .article:hover{border-color:rgba(212,165,116,.5);box-shadow:0 24px 60px -30px rgba(139,107,171,.3)}
-.article-media{overflow:hidden;background:#1a1024;position:relative;line-height:0}
-.article-media img{width:100%;height:auto;display:block;transition:transform .8s var(--ease)}
-.article:hover .article-media img{transform:scale(1.02)}
+.article-media{overflow:hidden;background:#1a1024;line-height:0}
+.article-media img{width:100%;height:auto;display:block}
 .article-body{padding:34px 36px}
 .article-body h3{font-size:clamp(22px,2.5vw,30px);margin-bottom:14px;line-height:1.25}
 .article-preview{color:var(--muted);font-size:16px;line-height:1.7}
@@ -112,11 +108,34 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .article.open .article-toggle .arrow{transform:rotate(180deg)}
 .article.open .article-full{max-height:5000px}
 
-.products-slot{margin-top:80px;border:1px dashed rgba(212,165,116,.4);border-radius:22px;padding:60px 30px;text-align:center;background:rgba(212,165,116,.03)}
-.products-slot .lbl{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
-.products-slot p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto}
-.products-slot .pulse{width:12px;height:12px;border-radius:50%;background:var(--gold);margin:0 auto 22px;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+/* PRODUCTS CAROUSEL */
+.products-wrap{margin-top:80px}
+.products-head{text-align:center;margin-bottom:40px}
+.products-head h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px}
+.products-head p{color:var(--muted);font-size:16px}
+.carousel{position:relative}
+.carousel-track{display:flex;gap:24px;overflow-x:auto;scroll-behavior:smooth;padding:10px 4px 30px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;scroll-snap-type:x mandatory}
+.carousel-track::-webkit-scrollbar{height:6px}
+.carousel-track::-webkit-scrollbar-track{background:rgba(212,165,116,.08);border-radius:99px}
+.carousel-track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px}
+.product{flex:0 0 340px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.4s var(--ease)}
+.product:hover{transform:translateY(-6px);border-color:rgba(212,165,116,.55);box-shadow:0 24px 60px -30px rgba(139,107,171,.4)}
+.product-img{background:#1a1024;line-height:0;overflow:hidden}
+.product-img img{width:100%;height:auto;display:block;transition:transform .8s var(--ease)}
+.product:hover .product-img img{transform:scale(1.03)}
+.product-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+.product-price{display:inline-flex;align-items:center;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold-2);margin-bottom:12px;letter-spacing:.3px}
+.product-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;line-height:1.3;margin-bottom:14px;color:var(--text)}
+.product-desc{color:var(--muted);font-size:14.5px;line-height:1.65;flex:1;margin-bottom:22px;white-space:pre-line}
+.product-desc em{color:var(--gold-2);font-style:normal;font-weight:500}
+.product-buy{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1a1024;font-size:14px;font-weight:600;letter-spacing:.3px;border:0;transition:.35s var(--ease);width:100%}
+.product-buy:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(212,165,116,.4)}
+.product-meta{font-size:12px;color:var(--muted);letter-spacing:.5px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+.product-meta span{display:inline-flex;align-items:center;gap:6px}
+.carousel-nav{display:flex;justify-content:center;gap:12px;margin-top:20px}
+.carousel-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--gold);font-size:20px;display:flex;align-items:center;justify-content:center;transition:.3s var(--ease)}
+.carousel-nav button:hover{background:var(--gold);color:#1a1024;border-color:var(--gold);transform:translateY(-3px)}
+.carousel-nav button:active{transform:scale(.95)}
 
 .contacts{background:linear-gradient(135deg,rgba(139,107,171,.12),rgba(212,165,116,.08));border:1px solid var(--line);border-radius:26px;padding:60px 50px;text-align:center}
 .contacts h2{font-size:clamp(30px,4vw,48px);margin-bottom:20px}
@@ -147,12 +166,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
 .tg-bubble{position:fixed;left:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#39a9de,#2b8cbe);display:flex;align-items:center;justify-content:center;color:#fff;z-index:95;box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 0 rgba(57,169,222,.6);animation:tgPulse 2.4s infinite;transition:transform .35s var(--ease)}
 .tg-bubble:hover{transform:scale(1.1) translateY(-2px)}
 .tg-bubble svg{width:30px;height:30px;fill:#fff}
-.tg-bubble .tip{position:absolute;left:76px;top:50%;transform:translateY(-50%) translateX(-8px);background:#1a1024;color:var(--gold-2);font-size:13px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;opacity:0;pointer-events:none;transition:.35s var(--ease)}
-.tg-bubble:hover .tip{opacity:1;transform:translateY(-50%) translateX(0)}
 @keyframes tgPulse{0%{box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 0 rgba(57,169,222,.55)}70%{box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 18px rgba(57,169,222,0)}100%{box-shadow:0 14px 40px rgba(57,169,222,.45),0 0 0 0 rgba(57,169,222,0)}}
 
-@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:50px}.portrait{max-width:420px;margin:0 auto;width:100%}.nav-links{position:fixed;top:0;right:-100%;width:78%;max-width:340px;height:100vh;background:var(--bg-2);flex-direction:column;padding:100px 40px;gap:24px;transition:.45s var(--ease);border-left:1px solid var(--line)}.nav-links.open{right:0}.nav-links a{font-size:18px;color:var(--text)}.burger{display:block;z-index:110}.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.about-block,.contacts{padding:50px 26px}.article-body{padding:28px 24px}}
-@media(max-width:560px){section{padding:80px 0}.container{padding:0 20px}.hero{padding-top:130px}.footer-grid{grid-template-columns:1fr}.cta-row .btn,.contacts-row .btn{width:100%;justify-content:center}.tg-bubble{left:16px;bottom:16px;width:56px;height:56px}.tg-bubble svg{width:26px;height:26px}.tg-bubble .tip{display:none}}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:50px}.portrait{max-width:420px;margin:0 auto;width:100%}.nav-links{position:fixed;top:0;right:-100%;width:78%;max-width:340px;height:100vh;background:var(--bg-2);flex-direction:column;padding:100px 40px;gap:24px;transition:.45s var(--ease);border-left:1px solid var(--line)}.nav-links.open{right:0}.nav-links a{font-size:18px;color:var(--text)}.burger{display:block;z-index:110}.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.about-block,.contacts{padding:50px 26px}.article-body{padding:28px 24px}.product{flex:0 0 300px}}
+@media(max-width:560px){section{padding:80px 0}.container{padding:0 20px}.hero{padding-top:130px}.footer-grid{grid-template-columns:1fr}.cta-row .btn,.contacts-row .btn{width:100%;justify-content:center}.tg-bubble{left:16px;bottom:16px;width:56px;height:56px}.tg-bubble svg{width:26px;height:26px}.product{flex:0 0 280px}}
 </style>
 </head>
 <body>
@@ -164,6 +181,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
       <ul class="nav-links" id="navLinks">
         <li><a href="#top">Главная</a></li>
         <li><a href="#about">Обо мне</a></li>
+        <li><a href="#products">Услуги</a></li>
         <li><a href="#articles">Статьи</a></li>
         <li><a href="#contacts">Контакты</a></li>
       </ul>
@@ -189,16 +207,11 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         <p class="extra">«Я занимаюсь духовным развитием с 13 лет и каждый день продолжаю движение вперёд!»</p>
         <div class="cta-row">
           <a href="https://t.me/juliuuya" target="_blank" rel="noopener" class="btn btn-primary">Записаться на сессию</a>
-          <a href="#articles" class="btn btn-ghost">Читать статьи</a>
+          <a href="#products" class="btn btn-ghost">Смотреть услуги</a>
         </div>
       </div>
       <div class="portrait reveal">
-        <img
-          src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png"
-          alt="Пархомовская Юлия — Божественный проводник, целитель, энергопрактик Access, регрессолог, кармолог, нумеролог, трансформационный психолог"
-          title="Пархомовская Юлия — Божественный проводник"
-          loading="eager"
-          decoding="async">
+        <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Пархомовская Юлия — Божественный проводник, целитель, энергопрактик Access" title="Пархомовская Юлия" loading="eager" decoding="async">
       </div>
     </div>
   </div>
@@ -222,63 +235,237 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
   </div>
 </section>
 
-<section id="articles" style="background:var(--bg-2)">
+<!-- УСЛУГИ / ТОВАРЫ — КАРУСЕЛЬ -->
+<section id="products" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="products-head reveal">
+      <span class="eyebrow">Услуги и сессии</span>
+      <h2>Выберите свою практику</h2>
+      <p>Нажмите «Купить» — откроется Telegram с готовым сообщением о заказе.</p>
+    </div>
+
+    <div class="carousel reveal">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- 1 -->
+        <div class="product">
+          <div class="product-img"><img src="products/energeticheskaya-praktika-aksess-aktivatsiya-akusticheskih-voln.png" alt="Энергетическая практика Access — Активация акустических волн" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">4 000 ₽</div>
+            <div class="product-title">Энергетическая практика Access «Активация акустических волн»</div>
+            <div class="product-desc">Акустическая вибрация — это то, чем наше тело создано было быть. Это пространство возможностей и единства с собой и миром.
+
+На электрической вибрации крепятся все обиды, чувство вины, сомнения, сожаления, страх, ревность и другие отвлекающие импланты. Также ограничения, блоки и стресс.
+
+С помощью этого процесса есть возможность освободить тело от всех этих ограничений и вернуть его в первоначальное состояние расслабления, лёгкости, радости и возможностей. 🤩
+
+<em>Сеанс проходит в Новороссийске. Время сеанса — 60 минут.</em></div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Активация%20акустических%20волн" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="product">
+          <div class="product-img"><img src="products/energeticheskaya-praktika-telesnyj-process-aksess-kognitivnyj-dissonans.png" alt="Энергетическая практика Access — Когнитивный диссонанс" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">4 000 ₽</div>
+            <div class="product-title">Энергетическая практика Access «Когнитивный диссонанс»</div>
+            <div class="product-desc">Когнитивный диссонанс — это две противоположные или разные точки зрения на один и тот же предмет.
+
+💬 Вы думаете, вам нужны деньги, и в то же время думаете, что не можете их получить.
+💬 Я люблю и ненавижу (относительно одного человека, вещи или…).
+💬 Я хочу, но я не могу…
+💬 Хотите сказать нет, а говорите да…
+
+Из-за этого вы генеративную энергию превращаете в разрушительную и прячете это в тело, превращаете в стресс. Всё это приводит к боли, нехватке денег или какому-либо страданию.
+
+А из тела это убирает телесный процесс Access.
+
+<em>Сеанс проходит в Новороссийске. Время сеанса — 60–90 минут.</em></div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Когнитивный%20диссонанс" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="product">
+          <div class="product-img"><img src="products/energeticheskaya-praktika-telesnyj-process-aksess-dublirovanie-semejnyh-boleznej.png" alt="Энергетическая практика Access — Дублирование семейных болезней" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">4 000 ₽</div>
+            <div class="product-title">Энергетическая практика Access «Дублирование семейных болезней»</div>
+            <div class="product-desc">О чём этот процесс?
+
+Наука говорит, что наше тело и его ДНК — это 50% от мамы и папы, то есть структура нашего тела с момента рождения в некоторой степени обусловлена семейной генетикой.
+
+Замечали ли, что где-то и в чём-то вы повторяете судьбу родителей или других членов семьи — или, наоборот, стараетесь идти против, занимая противоположную позицию? 🪞
+
+А что если бы у вас был другой выбор?
+
+Недавно стало возможным то, что позволяет устранить, где наше тело дублирует семейные паттерны, и вернуть 🧬 ДНК тела в его изначальную структуру.
+
+Многие говорят, что несколько поколений назад рождались более здоровые тела, чем рождаются сейчас.
+
+Пришло ли время растождествить своё тело от родовых паттернов, программ и энергий, которые более вам не служат? 🥰
+
+<em>Сеанс проходит в Новороссийске. Время сеанса — 40–60 минут.</em></div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Дублирование%20семейных%20болезней" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="product">
+          <div class="product-img"><img src="products/meditatsiya-samoistseleniya.png" alt="Медитация самоисцеления" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">5 000 ₽</div>
+            <div class="product-title">Медитация самоисцеления</div>
+            <div class="product-desc">Практика, направленная на достижение состояния внутреннего покоя и гармонии, что способствует улучшению физического и эмоционального здоровья.
+
+<strong style="color:var(--gold-2)">Когда полезно:</strong>
+1. Для исцеления ситуаций из прошлого, которые до сих пор беспокоят.
+2. Когда вы расстроены по любой причине.
+3. Когда нет энергии и ресурса.
+4. Когда есть ощущение, что в жизни тупик.
+5. В состояниях депрессии.
+
+<strong style="color:var(--gold-2)">Помогает:</strong>
+💚 снизить уровень стресса и напряжения;
+💚 улучшить настроение и общее самочувствие;
+🩵 укрепить иммунитет;
+🩵 развить внутреннюю гармонию и баланс;
+💙 исцелить ситуацию, которая беспокоит;
+💙 наполнить себя жизненной энергией.
+
+Свяжитесь со мной <strong style="color:var(--gold-2)">@juliuuya</strong> — буду рада помочь.</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Медитация%20самоисцеления" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="product">
+          <div class="product-img"><img src="products/istselenie-nizhnih-tel.png" alt="Исцеление нижних тел" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">6 000 ₽</div>
+            <div class="product-title">Исцеление нижних тел</div>
+            <div class="product-desc">Исцеление 6 нижних тел: <strong style="color:var(--gold-2)">Физического, Эмоционального, Эфирного, Астрального, Ментального, Каузального.</strong>
+
+Глубокая сессия для восстановления целостности всех уровней вашего существа.</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Исцеление%20нижних%20тел" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="product">
+          <div class="product-img"><img src="products/istselenie-roda.png" alt="Исцеление Рода, Родовых программ" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">7 000 ₽</div>
+            <div class="product-title">Исцеление Рода, Родовых программ</div>
+            <div class="product-desc">Сессия для работы с Родом: исцеление Родового Древа, исцеление травм, передающихся из поколения в поколение, Родовых программ.
+
+Помощь в восстановлении связи с силой и поддержкой вашего Рода. 🌳</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Исцеление%20Рода" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="product">
+          <div class="product-img"><img src="products/prosmotr-potentsialov-budushchego.png" alt="Просмотр потенциалов будущего" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">12 000 ₽</div>
+            <div class="product-title">Просмотр потенциалов будущего</div>
+            <div class="product-desc">Сессия-погружение для просмотра и наибольшего раскрытия потенциалов способностей, талантов, даров.
+
+Выход на эту ветку реальности, соединение с выбранной реальностью по чакрам. ✨</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Просмотр%20потенциалов%20будущего" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="product">
+          <div class="product-img"><img src="products/istselenie-boleznej.png" alt="Исцеление болезней" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">8 000 ₽</div>
+            <div class="product-title">Исцеление болезней</div>
+            <div class="product-desc">Сессия по исследованию и исцелению кармических причин заболеваний, завершение уроков, связанных с болезнью.
+
+Погружение поможет понять, чему учит болезнь, в чём её урок, в чём позитивная роль болезни, при каких условиях возможно исцеление. 🌿</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Исцеление%20болезней" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="product">
+          <div class="product-img"><img src="products/rabota-s-implantami-konfliktuyushchimi-energiyami-sushchnostyami.png" alt="Работа с имплантами, конфликтующими энергиями, сущностями" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">7 000 ₽</div>
+            <div class="product-title">Работа с имплантами, конфликтующими энергиями, сущностями</div>
+            <div class="product-desc">Сессия для освобождения из тела имплантов, конфликтующих энергий, расторжение контрактов с сущностями.
+
+Возвращение себе чистоты и целостности. 🕊️</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Работа%20с%20имплантами" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="product">
+          <div class="product-img"><img src="products/zavershenie-kontraktov-klyatv-obetov-obeshchanij-obyazatelstv.png" alt="Завершение контрактов, клятв, обетов, обещаний, обязательств" loading="lazy" decoding="async"></div>
+          <div class="product-body">
+            <div class="product-price">7 000 ₽</div>
+            <div class="product-title">Завершение контрактов, клятв, обетов, обещаний, обязательств</div>
+            <div class="product-desc">Сессия по завершению данных как в этой, так и в прошлых жизнях клятв, обетов, обещаний, обязательств, контрактов с энерго-структурами, эгрегорами.
+
+Освобождение от груза прошлого. 🔓</div>
+            <a class="product-buy" href="https://t.me/juliuuya?text=ЗАКАЗ%3A%20Завершение%20контрактов%20и%20клятв" target="_blank" rel="noopener">Купить</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-nav">
+        <button id="carPrev" aria-label="Назад">‹</button>
+        <button id="carNext" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="articles">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">Статьи и публикации</span>
       <h2>Темы, которые откликаются</h2>
       <p>Нажмите «Читать далее», чтобы раскрыть полный текст.</p>
     </div>
-    <div class="articles" id="articlesList">
+    <div class="articles">
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Пархомовская Юлия — Божественный проводник, энергопрактик Access, целитель, регрессолог, нумеролог, трансформационный психолог" title="Божественный проводник — Пархомовская Юлия" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Божественный проводник" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Божественный проводник: обо мне</h3>
-          <p class="article-preview">Меня зовут Юлия. Я Проводник Божественных энергий, Духовный психолог, наставник, Целитель, Энергопрактик. Работаю на уровне сознания и подсознания, помогаю людям в решении их проблем…</p>
+          <p class="article-preview">Меня зовут Юлия. Я Проводник Божественных энергий, Духовный психолог, наставник, Целитель, Энергопрактик. Работаю на уровне сознания и подсознания…</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Работаю с МАК картами (Метафорические ассоциативные карты), провожу Трансформационные игры.</p>
-            <p>Я занимаюсь духовным развитием с 13 лет и каждый день продолжаю движение вперёд!</p>
-            <p>Если вы верите, что в жизни всё не просто так и не просто так вы оказались на этой страничке, то добро пожаловать в мою группу, подписывайтесь и читайте обновления.</p>
-            <p>Вы готовы изменить свою жизнь к лучшему и жить так как вы давно мечтали? Если да, то я вам помогу, при условии, что вы готовы взять на себя ответственность за собственное счастье и начать двигаться по направлению к лучшей жизни о которой давно мечтали!</p>
+            <p>Работаю с МАК картами (Метафорические ассоциативные карты), провожу Трансформационные игры. Я занимаюсь духовным развитием с 13 лет и каждый день продолжаю движение вперёд!</p>
             <p>Я Божественный проводник, Энергопрактик Access, Целитель, Регрессолог, Нумеролог, Трансформационный психолог и организатор мероприятий в Новороссийске.</p>
             <p>С детства занимаюсь духовным развитием. Больше 20 лет помогаю людям через яснознание, ясновидение и ясночувствование в канале с Высшим Я и высшими силами.</p>
             <p><strong>Я — Юлия. Я иду рядом с теми, кто готов вернуться к себе.</strong></p>
-            <p>Больше 20 лет я работаю с людьми. Я вижу корень там, где другие работают с последствиями. Я чувствую боль, которая передаётся из поколения в поколение. Я знаю, как это — жить в выживании. И я знаю, как из него выйти.</p>
-            <p>Я прошла через многое. Через семью нарциссов, где любовь была болью. Через отношения, где меня обесценивали и использовали. Через потерю себя. Через болезни. Через долги. Через одиночество. Через страхи и нежелание жить.</p>
-            <p>Я не сломалась. Я собрала себя заново. По кусочкам. Через терапию, через духовные практики, через честность с собой. Я вернула связь с телом, с душой, с Родом. Я научилась выбирать себя.</p>
-            <p><strong>Я работаю с:</strong></p>
-            <p>— родовыми сценариями и травмами предков;<br>— психосоматикой и телесными зажимами;<br>— чакрами и энергетическими блоками;<br>— отношениями, деньгами, самооценкой;<br>— возвращением связи с Высшим Я (Душой).</p>
-            <p>Я не спасаю. Я не даю волшебных таблеток. Я не решаю за тебя. Я иду рядом. Я подсвечиваю то, что ты сама не видишь. Я держу пространство, где ты можешь быть честной. И ты находишь свой путь.</p>
-            <p>Я верю, что каждый человек — творец своей жизни. И что исцеление возможно. Не через боль. А через любовь. К себе. К своему телу. К своему Роду. К своей душе.</p>
-            <p>Если ты чувствуешь, что пора вернуться к себе — я здесь. Жду тебя на диагностической сессии.</p>
+            <p>Больше 20 лет я работаю с людьми. Я вижу корень там, где другие работают с последствиями. Я прошла через многое: семью нарциссов, обесценивание, потерю себя, болезни, долги, одиночество. Я не сломалась — я собрала себя заново. По кусочкам. Через терапию, духовные практики, честность с собой.</p>
+            <p><strong>Я работаю с:</strong> родовыми сценариями и травмами предков, психосоматикой и телесными зажимами, чакрами и энергетическими блоками, отношениями, деньгами, самооценкой, возвращением связи с Высшим Я.</p>
+            <p>Я не спасаю. Я иду рядом. Я подсвечиваю то, что ты сама не видишь. Я держу пространство, где ты можешь быть честной. И ты находишь свой путь.</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/ty-perestala-doveryat-svoemu-telu.png" alt="Ты перестала доверять своему телу — статья Юлии Пархомовской о психосоматике" title="Ты перестала доверять своему телу" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/ty-perestala-doveryat-svoemu-telu.png" alt="Ты перестала доверять своему телу" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Ты перестала доверять своему телу</h3>
           <p class="article-preview">Ты не заметила, как это произошло. Когда-то ты чувствовала своё тело. Знала, когда оно хочет есть, а когда просто просит воды…</p>
           <div class="article-full"><div class="article-full-inner">
             <p>Чувствовала, когда устала, а когда — просто скучно. Тело было твоим домом. Твоим союзником.</p>
-            <p><strong>А теперь?</strong></p>
-            <p>Ты не понимаешь, почему набираешь вес. Почему болит голова. Почему нет сил, хотя ты вроде бы ничего тяжёлого не делала. Почему тошнит от кофе. Почему тянет ногу. Почему кожа потеряла упругость.</p>
-            <p>Ты смотришь на себя в зеркало и не узнаёшь. Ты чувствуешь себя чужой в собственном теле.</p>
-            <p>И самое страшное — ты перестала ему верить.</p>
-            <p>Ты думаешь: «Оно меня подводит». Ты злишься на него за усталость. Ты стыдишься его за вес. Ты игнорируешь его сигналы, потому что «надо», «некогда», «не сейчас».</p>
+            <p><strong>А теперь?</strong> Ты не понимаешь, почему набираешь вес. Почему болит голова. Почему нет сил. Почему тошнит от кофе. Почему тянет ногу. Почему кожа потеряла упругость.</p>
+            <p>Ты смотришь на себя в зеркало и не узнаёшь. Ты чувствуешь себя чужой в собственном теле. И самое страшное — ты перестала ему верить.</p>
             <p>Но твоё тело не враг. Оно — твой первый язык. И когда ты перестаёшь его слышать — ты теряешь связь с собой.</p>
-            <p>Тело говорит с тобой через боль. Через усталость. Через тяжесть. Через тягу к странным запахам и вкусам.</p>
-            <p>Оно не молчит. Оно кричит. Но ты привыкла не слышать. Потому что когда-то было небезопасно чувствовать. Потому что кто-то нарушал твои границы, а ты должна была терпеть. Потому что ты научилась отключаться, чтобы выжить.</p>
-            <p>И теперь ты не знаешь, как включиться обратно.</p>
-            <p>Я знаю это. Я прошла через это. Я тоже не слышала своё тело. Я тоже игнорировала его крики. Я тоже думала, что оно меня подводит — пока не поняла, что это я подвожу его.</p>
-            <p>Тело — это не просто «оболочка». Это дом твоей души. И когда ты теряешь связь с телом, ты теряешь связь с душой.</p>
+            <p>Тело говорит с тобой через боль. Через усталость. Через тяжесть. Оно не молчит. Оно кричит. Но ты привыкла не слышать. Потому что когда-то было небезопасно чувствовать.</p>
+            <p>Я знаю это. Я прошла через это. Тело — это не просто «оболочка». Это дом твоей души. И когда ты теряешь связь с телом, ты теряешь связь с душой.</p>
             <p>Я создала медитацию на исцеление и «Соединение с Высшим Я» — для тех, кто хочет вернуться.</p>
             <blockquote>Сейчас медитация стоит 1500 ₽. Через неделю цена повысится на 1000 ₽ — до 2500 ₽.</blockquote>
           </div></div>
@@ -287,21 +474,17 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/pochemu-ty-perestala-slyshat-sebya.png" alt="Почему ты перестала слышать себя — 5 причин, которые заглушают голос души" title="Почему ты перестала слышать себя" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/pochemu-ty-perestala-slyshat-sebya.png" alt="Почему ты перестала слышать себя" loading="lazy" decoding="async"></div>
         <div class="article-body">
-          <h3>Почему ты перестала слышать себя? 5 причин, которые заглушают голос души</h3>
+          <h3>Почему ты перестала слышать себя? 5 причин</h3>
           <p class="article-preview">Ты ищешь ответы у других. Ты ходишь к специалистам, читаешь книги, слушаешь подкасты. Но внутри всё так же тихо…</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Потому что ты потеряла связь с главным источником — со своей душой. Она не молчит. Она говорит всегда. Просто ты перестала её слышать.</p>
             <p><strong>5 причин, которые заглушают голос твоей души:</strong></p>
-            <p><strong>1. Ты слишком занята чужими голосами.</strong> Ты привыкла слушать других — маму, партнёра, начальника, общество. Ты знаешь, что «надо», но забыла, что «хочешь».</p>
-            <p><strong>2. Ты боишься тишины.</strong> Когда ты остаёшься одна, внутри поднимается тревога. Ты включаешь фон, листаешь ленту. Но именно в этой тишине — голос души.</p>
-            <p><strong>3. Ты привыкла терпеть и перетерпевать.</strong> Ты научилась заглушать свои чувства, откладывать их на потом. Но душа говорит через тело — через боль, усталость, напряжение.</p>
-            <p><strong>4. Ты ищешь спасение снаружи.</strong> Ты ждёшь, что кто-то скажет тебе правильный ответ, даст волшебную таблетку. Но путь к себе не лежит через другого человека.</p>
-            <p><strong>5. Ты не веришь, что достойна слышать себя.</strong> Где-то глубоко внутри сидит убеждение: «Я не знаю, что для меня лучше», «Я ошибусь». Но твоя душа знает твой путь лучше всех.</p>
-            <p><strong>Что делать?</strong> Вернуть себе голос. Начать можно с малого: закрыть глаза, задать себе вопрос и подождать ответа. Не торопить. Просто слушать.</p>
+            <p><strong>1. Ты слишком занята чужими голосами.</strong> Ты знаешь, что «надо», но забыла, что «хочешь».</p>
+            <p><strong>2. Ты боишься тишины.</strong> Когда ты остаёшься одна, внутри поднимается тревога. Но именно в этой тишине — голос души.</p>
+            <p><strong>3. Ты привыкла терпеть и перетерпевать.</strong> Душа говорит через тело — через боль, усталость, напряжение.</p>
+            <p><strong>4. Ты ищешь спасение снаружи.</strong> Но путь к себе не лежит через другого человека.</p>
+            <p><strong>5. Ты не веришь, что достойна слышать себя.</strong> Но твоя душа знает твой путь лучше всех.</p>
             <p>Если ты готова восстановить эту связь — приглашаю тебя в медитацию «Соединение с Высшим Я».</p>
             <blockquote>Цена 1500 ₽ — только медитация. Цена 2000 ₽ — медитация + доступ в закрытый чат на 2 недели.</blockquote>
           </div></div>
@@ -310,209 +493,145 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/ty-ustala-iskat-otvety.png" alt="Ты устала искать ответы у других — пришло время услышать себя" title="Ты устала искать ответы у других" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/ty-ustala-iskat-otvety.png" alt="Ты устала искать ответы у других" loading="lazy" decoding="async"></div>
         <div class="article-body">
-          <h3>Ты устала искать ответы у других. Пришло время услышать себя</h3>
+          <h3>Ты устала искать ответы у других</h3>
           <p class="article-preview">Ты ходишь к психологам, тарологам, наставникам, гуру. Ты читаешь книги, смотришь вебинары, собираешь практики…</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Ты ищешь того, кто скажет тебе, как жить, что делать, куда идти. И каждый раз ты получаешь ответ. Но внутри становится ещё более пусто.</p>
-            <p>Потому что ты ищешь спасение там, где его нет. Ты ищешь ответ снаружи — в надежде, что кто-то другой знает твой путь лучше, чем ты сама.</p>
-            <p>Но правда в том, что ты уже знаешь ответы. Ты просто перестала их слышать.</p>
-            <p>Связь с собой была прервана. Не потому, что ты слабая. А потому, что ты слишком долго отдавала свою силу другим. Ты разрешила чужим голосам стать громче, чем голос твоей души.</p>
+            <p>Ты ищешь того, кто скажет тебе, как жить. И каждый раз ты получаешь ответ. Но внутри становится ещё более пусто.</p>
+            <p>Но правда в том, что ты уже знаешь ответы. Ты просто перестала их слышать. Связь с собой была прервана. Не потому, что ты слабая, а потому что ты слишком долго отдавала свою силу другим.</p>
             <p>Эта медитация — не про то, чтобы дать тебе новый ответ. Она про то, чтобы вернуть тебе способность слышать себя.</p>
-            <p>Она не научит тебя новому. Она напомнит тебе то, что ты всегда знала. Что ты — не потерянная. Что ты — не сломанная.</p>
-            <p>Ты — та, кто может вернуться домой. К себе. 🥰</p>
             <p>Я проведу тебя через тишину, через пространство, где ты встретишься с собой. Не с той, кем тебя сделали обстоятельства. А с той, кем ты всегда была.</p>
             <p>Если этот текст отозвался — напиши мне <strong>@juliuuya</strong>.</p>
-            <p>P.S. Твоя душа уже ждёт когда ты выйдешь с ней на связь.</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/ty-perestal-zhit-i-nachal-vyzhivat.png" alt="Ты перестал жить и начал выживать — медитация для возвращения к себе" title="Ты перестал жить и начал выживать" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/ty-perestal-zhit-i-nachal-vyzhivat.png" alt="Ты перестал жить и начал выживать" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Ты перестал жить и начал выживать?</h3>
-          <p class="article-preview">Эта медитация поможет тебе вернуть себя. Я знаю это состояние. Когда ты не живёшь, а выживаешь. Когда внутри — пустота, а вокруг — клетка…</p>
+          <p class="article-preview">Эта медитация поможет тебе вернуть себя. Я знаю это состояние. Когда ты не живёшь, а выживаешь…</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Когда даже работа, которая когда-то вдохновляла, перестаёт резонировать. Когда ты отдалился (ась) от себя и не знаешь, как вернуться.</p>
-            <p>Вчера один мой клиент написал мне отзыв после медитации. И я попросила у него разрешения поделиться — потому что это не просто слова, это состояние тысяч людей, которые ищут выход. 🙏</p>
-            <blockquote>«Я вчера после медитации вспомнил, как это — быть на связи с душой. И понял, как растерял это. Наверное, потому что начал выживать, а не жить. Как вернулся в Красноярск — начал схлапываться. Как в клетке. Ушла радость от жизни.»</blockquote>
-            <p>Он сказал, что слушает эту медитацию каждый день перед сном. И соединяется с Высшим Я. И понимает, как отдалился от него. И что та деятельность, которой он занимается сейчас — вообще не то, что резонирует с тем, кем он является на самом деле.</p>
-            <p>Ты узнаёшь себя в этих строках?</p>
-            <p>Эта медитация не для всех. Она для тех, кто готов услышать себя. Кто хочет выйти из режима выживания. Кто устал от схлапывания внутри и снаружи.</p>
-            <p>Я создала её, чтобы ты мог(ла) возвращаться к себе. Каждый вечер. Без усилий, без сложных практик. Просто быть на связи с собой. 🥰</p>
+            <p>Когда внутри — пустота, а вокруг — клетка. Когда даже работа, которая когда-то вдохновляла, перестаёт резонировать.</p>
+            <blockquote>«Я вчера после медитации вспомнил, как это — быть на связи с душой. И понял, как растерял это. Наверное, потому что начал выживать, а не жить. Ушла радость от жизни.»</blockquote>
+            <p>Эта медитация не для всех. Она для тех, кто готов услышать себя. Кто хочет выйти из режима выживания.</p>
+            <p>Я создала её, чтобы ты мог(ла) возвращаться к себе. Каждый вечер. Без усилий, без сложных практик.</p>
             <blockquote>Цена 1500 ₽ — только медитация. Цена 2000 ₽ — медитация + доступ в закрытый чат на 2 недели.</blockquote>
-            <p>Одна встреча с психологом стоит от 2500 ₽. А эта медитация будет с вами каждый день. Это — встреча с собой. Каждый день.</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/esli-ty-rodilas.png" alt="Если ты родилась 9, 18 или 27 числа — нумерология, энергия 9, воин" title="Если ты родилась 9, 18 или 27 числа" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/esli-ty-rodilas.png" alt="Если ты родилась 9, 18 или 27 числа" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Если ты родилась 9, 18 или 27 числа — этот пост для тебя</h3>
-          <p class="article-preview">Ты — воин. И это твой крест и твой дар. Ты знаешь это чувство, когда внутри — огонь, а снаружи — лёд?🔥…</p>
+          <p class="article-preview">Ты — воин. И это твой крест и твой дар. Ты знаешь это чувство, когда внутри — огонь, а снаружи — лёд? 🔥</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Когда ты можешь сделать больше, чем любой мужчина вокруг, но внутри так хочется, чтобы кто-то просто сказал: «Ложись, я сам всё сделаю»?</p>
-            <p>Добро пожаловать в клуб. 👋 Ты — энергия 9.</p>
             <p>9 — это число Воина. Не солдата, который выполняет приказы. А Воина-философа, который несёт свет, даже когда сам горит в аду.</p>
-            <p><strong>Женщины с энергией 9 — это те, кто:</strong></p>
-            <p>❤️‍🩹 С детства знал, что никто не придёт и не спасёт. Поэтому они стали своей собственной опорой.</p>
-            <p>❤️‍🩹 Могут годами тащить на себе бизнес, дом, отношения, чужие проекты — и улыбаться, пока внутри всё рушится.</p>
-            <p>❤️‍🩹 Им сложно просить о помощи, потому что «просить» для них = «слабость». А они — сильные. Всегда.</p>
-            <p>❤️‍🩹 При этом внутри — бездонный колодец нежности. Они мечтают о мужчине, который не испугается их силы. Который скажет: «Я вижу твою усталость. Я здесь. Ты можешь упасть — я поймаю». Но встречают только тех, кто хочет их «использовать» или «сломать».</p>
-            <p>9-ки умеют быть удобными. Они умеют любить до дна, гореть до пепла и вставать с колен, даже когда кажется, что сил больше нет. 💔</p>
-            <p>Их главная боль — в том, что они слишком долго не разрешали себе быть слабыми. Потому что боялись, что если перестанут быть «сильными» — их перестанут замечать.</p>
-            <p>Но вот что я хочу сказать тебе, моя воительница. Твоя сила — это не проклятие. Это твой уровень. И на этом уровне — другие правила. Здесь ты не должна выбирать между «быть сильной» и «быть любимой». Здесь можно и то, и другое.</p>
-            <p>Просто нужно перестать доказывать, что ты достойна. И начать разрешать себе принимать. 🥰</p>
+            <p><strong>Женщины с энергией 9:</strong> с детства знали, что никто не придёт и не спасёт. Поэтому стали своей опорой. Могут годами тащить на себе бизнес, дом, отношения. Им сложно просить о помощи, потому что «просить» = «слабость».</p>
+            <p>Но внутри — бездонный колодец нежности. Они мечтают о мужчине, который не испугается их силы.</p>
+            <p>Твоя сила — это не проклятие. Это твой уровень. Здесь ты не должна выбирать между «быть сильной» и «быть любимой». Здесь можно и то, и другое.</p>
             <p>Я создала медитацию «Возвращение к себе. Внутренняя Женщина» именно для таких, как ты.</p>
-            <blockquote>Стоимость участия — 1500 ₽ до 30 августа. С 1 сентября — 2500 ₽. Напиши мне <strong>@juliuuya</strong> слово «ВОИН».</blockquote>
-            <p>Ты не сломана. Ты просто устала быть сильной. И это нормально. Это по-человечески. И это — путь к настоящей любви к себе.</p>
+            <blockquote>Напиши мне <strong>@juliuuya</strong> слово «ВОИН».</blockquote>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/ya-perestala-zhdat-chto-menya-pojmut.png" alt="Я перестала ждать, что меня поймут — личная история Юлии Пархомовской" title="Я перестала ждать, что меня поймут" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/ya-perestala-zhdat-chto-menya-pojmut.png" alt="Я перестала ждать, что меня поймут" loading="lazy" decoding="async"></div>
         <div class="article-body">
-          <h3>«Я перестала ждать, что меня поймут. И вот что случилось»</h3>
+          <h3>«Я перестала ждать, что меня поймут»</h3>
           <p class="article-preview">Я очень долго жила с ощущением, что я «неудобная». Что если я скажу о том, что мне больно — меня не поймут…</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Если попрошу о внимании — скажут, что я требую слишком много. Если промолчу — проглотят молчание и даже не заметят. И когда я осмеливалась заявить о своих желаниях, то слышала: «Ты слишком много хочешь». Нет, не много, просто эти люди не могли дать даже этот минимум. И я стала молчать о том, что со мной происходит.</p>
-            <p>Я научилась быть удобной. Я стала подстраиваться. Я стала ждать, когда кто-то заметит, что я устала, и спросит: «Тебе помочь?».</p>
-            <p>Знаете, сколько раз этот кто-то появлялся? <strong>Ноль.</strong></p>
-            <p>Никто не читает мысли. Никто не догадается, что у нас внутри — ад, если мы сами не скажем об этом вслух. Но самое страшное не в том, что другие не догадываются. Самое страшное — что я сама долгое время не давала себе права признаться: Мне плохо. Мне одиноко. Я не хочу так больше.</p>
-            <p>Я злилась на людей, которые не могли дать мне то, что мне было нужно. Я обвиняла их в чёрствости, в незрелости, в эгоизме. Я тратила на это столько сил... А они просто жили своей жизнью. И даже не знали, что я веду с ними внутренний суд.</p>
-            <p>В какой-то момент я устала судить. 😞</p>
-            <p>Я перестала ждать, что кто-то изменится ради меня. Перестала ждать, что меня «услышат» и «поймут» без слов. Это было тяжело — начать признавать свою слабость и говорить о ней.</p>
-            <p>Но именно в этом признании родилась моя настоящая сила. 💪</p>
-            <p>Я начала говорить. Не требовательно. Не агрессивно. А просто: «Мне больно, когда ты молчишь», «Я чувствую одиночество», «Мне нужен человек рядом». Я перестала бояться выглядеть слабой.</p>
-            <p>И знаете, что произошло? Кто-то услышал, кто-то нет. Кто-то ушёл. Но самое главное — я перестала быть заложницей ожиданий.</p>
-            <p>Я поняла: никто не придёт и не построит для меня тёплый дом. Я должна построить его сама. Из своего голоса. Из своего права просить. Из своего разрешения чувствовать злость и обиду.</p>
-            <p>А потом пригласить в этот дом того, кто захочет в нём остаться. Не того, кто будет спасать меня, а того, кому будет хорошо рядом со мной. Настоящей. Без масок. 🤕</p>
-            <p>Пиши <strong>@juliuuya</strong>. Подписывайся на мой канал. Здесь бережное пространство где можно быть собой безопасно. Обнимаю 🤗</p>
+            <p>Я научилась быть удобной. Я стала подстраиваться. Я стала ждать, когда кто-то заметит, что я устала. Знаете, сколько раз этот кто-то появлялся? Ноль.</p>
+            <p>Никто не читает мысли. Самое страшное — что я сама долгое время не давала себе права признаться: мне плохо, мне одиноко, я не хочу так больше.</p>
+            <p>В какой-то момент я устала судить. Я перестала ждать, что кто-то изменится ради меня. Но именно в этом признании родилась моя настоящая сила. 💪</p>
+            <p>Я поняла: никто не придёт и не построит для меня тёплый дом. Я должна построить его сама. Из своего голоса. Из своего права просить.</p>
+            <p>Пиши <strong>@juliuuya</strong>. Подписывайся на мой канал. Обнимаю 🤗</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/vstrecha-s-vysshim-ya.png" alt="Встреча с Высшим Я в период Коридора Затмений — целительская сессия" title="Встреча с Высшим Я" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/vstrecha-s-vysshim-ya.png" alt="Встреча с Высшим Я" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>«Встреча с Высшим Я» в период Коридора Затмений</h3>
-          <p class="article-preview">Ты давно не слышишь себя? Словно внутри тишина, а жизнь идёт мимо. Потерял(а) себя, оборвалась связь с душой, накрывает апатия, пустота, депрессия…</p>
+          <p class="article-preview">Ты давно не слышишь себя? Словно внутри тишина, а жизнь идёт мимо. Потерял(а) себя, оборвалась связь с душой…</p>
           <div class="article-full"><div class="article-full-inner">
             <p>Именно сейчас, в мощный Коридор Затмений, открывается уникальное окно, когда Высшее Я особенно близко и готово говорить громко.</p>
-            <p>Я приглашаю на индивидуальную целительскую сессию <strong>«Восстановление связи с Высшим Я»</strong>.</p>
             <p><strong>Что происходит на сессии (1 час):</strong></p>
-            <p>— глубокая настройка и очистка энергетических каналов;<br>— восстановление связи с душой и Высшим Я;<br>— получение ясных посланий и ответов изнутри;<br>— снятие блоков апатии, пустоты и депрессивных состояний;<br>— возвращение чувства «Я живой(ая)» 🥰 и внутренней опоры.</p>
-            <p>Сессия проходит онлайн, бережно, в безопасном пространстве. Ты услышишь себя снова.</p>
-            <blockquote>Возьму 10 человек. Стоимость — 1000 ₽. Длительность — 1 час. Мест мало. Коридор Затмений не ждёт.</blockquote>
-            <p>Если чувствуешь, что это про тебя, то пиши мне в личные сообщения <strong>@juliuuya</strong> слово «Высшее Я».</p>
-            <p>Твоё Высшее Я уже ждёт. Время возвращаться домой к себе. 😎</p>
+            <p>— глубокая настройка и очистка энергетических каналов;<br>— восстановление связи с душой и Высшим Я;<br>— получение ясных посланий и ответов изнутри;<br>— снятие блоков апатии, пустоты и депрессивных состояний;<br>— возвращение чувства «Я живой(ая)» и внутренней опоры.</p>
+            <blockquote>Возьму 10 человек. Стоимость — 1000 ₽. Длительность — 1 час. Мест мало.</blockquote>
+            <p>Пиши <strong>@juliuuya</strong> слово «Высшее Я».</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/kak-privlech-muzhchinu-gotovogo-k-zrelym-otnosheniyam.png" alt="Как привлечь мужчину, готового к зрелым отношениям — психология отношений" title="Как привлечь мужчину, готового к зрелым отношениям" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/kak-privlech-muzhchinu-gotovogo-k-zrelym-otnosheniyam.png" alt="Как привлечь мужчину, готового к зрелым отношениям" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Как привлечь мужчину, готового к зрелым отношениям?</h3>
-          <p class="article-preview">Пока вы ждёте чуда, находясь в ожидании «исцеления» или соглашаясь на полумеры из страха остаться одной, в вашу жизнь не придёт никто зрелый…</p>
+          <p class="article-preview">Пока вы ждёте чуда, находясь в ожидании «исцеления» или соглашаясь на полумеры из страха остаться одной…</p>
           <div class="article-full"><div class="article-full-inner">
             <p>Зрелые мужчины приходят не на пустоту и не на нужду. Они приходят на состояние изобилия.</p>
-            <p>Я прошла этот путь лично: от разрушительных сценариев, попыток заслужить любовь и роли «спасательницы» — до абсолютной внутренней свободы. Сейчас мне комфортно наедине с собой, я чётко знаю свою ценность и не согласна ни на что меньшее, чем уважение, забота и равное партнёрство.</p>
-            <p>Да, сейчас в моей жизни нет мужчины, но я точно знаю, что больше не соглашусь закрывать чьи-то эмоциональные дыры и не соглашусь на меньшее.</p>
+            <p>Я прошла этот путь лично: от разрушительных сценариев, попыток заслужить любовь и роли «спасательницы» — до абсолютной внутренней свободы.</p>
             <p>Я больше не буду никого спасать и искать подтверждения своей ценности через служение чужим дефицитам. Моя энергия направлена на созидание своей жизни.</p>
-            <p>Вам больше не нужно бороться за любовь или пытаться быть «достаточно хорошей». Её нужно просто разрешить себе — через исцеление старых травм, работу с энергетикой и возвращение к своему истинному «Я» и своей целостности. 🥰</p>
-            <p>Если вы чувствуете, что готовы переписать свой сценарий раз и навсегда и открыть дверь для чистых, глубоких и стабильных отношений — я приглашаю вас на целительную сессию. ✨</p>
+            <p>Если вы чувствуете, что готовы переписать свой сценарий раз и навсегда — я приглашаю вас на целительную сессию. ✨</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/pochemu-zrelye-granitsy-pugayut-teh-kto-privyk-brat.png" alt="Почему зрелые границы пугают тех, кто привык брать" title="Почему зрелые границы пугают тех, кто привык брать" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/pochemu-zrelye-granitsy-pugayut-teh-kto-privyk-brat.png" alt="Почему зрелые границы пугают тех, кто привык брать" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Почему зрелые границы пугают тех, кто привык брать?</h3>
-          <p class="article-preview">Знаете, что происходит с мужчиной, когда женщина перестаёт быть для него «удобным донором» и психотерапевтом? Он уходит. 🤎</p>
+          <p class="article-preview">Знаете, что происходит с мужчиной, когда женщина перестаёт быть для него «удобным донором»? Он уходит. 🤎</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Недавно из моей жизни окончательно вышел женатый мужчина, когда столкнулся с моей железобетонной позицией: я не строю отношения с теми, кто занят, и никогда не соглашусь на вторые роли. 🖕</p>
-            <p>Раньше этот уход мог бы вызвать боль или желание «догонять и объяснять». Сегодня это вызывает только глубокое уважение к самой себе. 🥰</p>
-            <p>Когда вы меняете внутренний сценарий, меняется весь ваш внутренний магнит. 🧲</p>
-            <p>Мужчины, которые ищут лёгкой наживы за чужой счёт, просто перестают пробивать ваши границы — они видят, что здесь поживиться больше нечем, и отсеиваются сами.</p>
-            <p>Это требует смелости. 💪 Сначала бывает непривычно и даже одиноко 😒 в этой освободившейся тишине. Но именно в этой тишине рождается настоящая опора. Пространство проверяет вас: готовы ли вы выбрать себя? И когда вы проходите эту проверку, мир поворачивается к вам совершенно другой стороной.</p>
-            <p>Если вы хотите перестать притягивать мужчин с дефицитами и научиться выстраивать жёсткие, экологичные границы, в которых вас уважают — жду вас на личных сессиях. 🤝</p>
+            <p>Недавно из моей жизни окончательно вышел женатый мужчина, когда столкнулся с моей железобетонной позицией: я не строю отношения с теми, кто занят.</p>
+            <p>Когда вы меняете внутренний сценарий, меняется весь ваш внутренний магнит. 🧲 Мужчины, которые ищут лёгкой наживы за чужой счёт, просто перестают пробивать ваши границы.</p>
+            <p>Это требует смелости. 💪 Именно в этой тишине рождается настоящая опора. Пространство проверяет вас: готовы ли вы выбрать себя?</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/pochemu-my-zastrevaem-v-roli-spasatelnitsy.png" alt="Почему мы застреваем в роли спасательницы — психология отношений" title="Почему мы застреваем в роли спасательницы" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/pochemu-my-zastrevaem-v-roli-spasatelnitsy.png" alt="Почему мы застреваем в роли спасательницы" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Почему мы застреваем в роли спасательницы?</h3>
           <p class="article-preview">Знакома ли вам ситуация: мужчина рядом вроде бы есть, но он эмоционально или юридически недоступен?..</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Он рассказывает, как несчастен в браке или в прошлых отношениях, жалуется на жизнь, а вы включаетесь на максимум. Вы утешаете, понимаете, даёте ресурс и закрываете его пустоты, искренне веря, что это и есть близость.</p>
+            <p>Он рассказывает, как несчастен в браке, жалуется на жизнь, а вы включаетесь на максимум. Вы утешаете, понимаете, даёте ресурс и закрываете его пустоты, искренне веря, что это и есть близость.</p>
             <p>А потом наступает момент опустошения. Вы понимаете, что отдали всё, а взамен получили роль утешительницы «на вторых ролях».</p>
-            <p>Я знаю об этом состоянии изнутри. Когда-то я сама проходила через тяжёлые сценарии, где пыталась заслуживать любовь, быть удобной и спасать тех, кто не умел выбирать меня по-настоящему.</p>
-            <p>Кажется, что если ты будешь достаточно хорошей, тебя оценят. Но правда в том, что из роли спасательницы невозможно построить счастливое, равное партнёрство. 🤝 Там есть только два места: для того, кто берёт ресурс, и для той, кто его безвозвратно сливает.</p>
-            <p>Сценарий не переписать силой мысли, пока внутри болит старая травма отвержения. Но его можно остановить, когда вы говорите себе: «Хватит. ❌ Моя энергия принадлежит мне». 🥰</p>
-            <p>Если вы устали быть жилеткой для чужих проблем и хотите наконец-то развернуться лицом к собственной ценности — напишите мне в личные сообщения <strong>@juliuuya</strong>.</p>
-            <p>Я провожу глубокие индивидуальные сессии, которые помогают распутать эти узлы на уровне тела и подсознания.</p>
+            <p>Из роли спасательницы невозможно построить счастливое, равное партнёрство. Там есть только два места: для того, кто берёт ресурс, и для той, кто его безвозвратно сливает.</p>
+            <p>Напишите мне <strong>@juliuuya</strong> — провожу глубокие индивидуальные сессии.</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
       <article class="article reveal">
-        <div class="article-media">
-          <img src="img/gorkaya-pravda.png" alt="Горькая правда — почему он уходит, когда становится нормальным" title="Горькая правда: почему он уходит" loading="lazy" decoding="async">
-        </div>
+        <div class="article-media"><img src="img/gorkaya-pravda.png" alt="Горькая правда — почему он уходит" loading="lazy" decoding="async"></div>
         <div class="article-body">
           <h3>Горькая правда: почему он уходит, когда становится «нормальным»?</h3>
-          <p class="article-preview">Вы отдавали ему всё: своё время, заботу, уют, терпение. Вы выслушивали его жалобы на бывших, помогали переживать разводы, лечили его «душевные раны»…</p>
+          <p class="article-preview">Вы отдавали ему всё: своё время, заботу, уют, терпение. Вы выслушивали его жалобы, помогали переживать разводы…</p>
           <div class="article-full"><div class="article-full-inner">
-            <p>Вы были для него всем. Но стоило ему «встать на ноги», как он… исчез. Почему доброта не спасает отношения, а часто их убивает? У меня есть для вас жёсткий, но важный ответ.</p>
-            <p>Мужчина, которого «починили», часто видит в спасательнице лишь зеркало своей слабости. Когда он был сломлен, вы были его опорой. Но рядом с женщиной, которая видела его беспомощным, «маленьким мальчиком», нуждающимся в утешении, он подсознательно перестаёт чувствовать себя мужчиной. Вы для него — напоминание о периоде, когда он не справлялся. А каждому мужчине жизненно важно чувствовать себя сильным героем.</p>
-            <p>Ему хочется уйти туда, где его не видели «пациентом». Когда ресурс восстанавливается и мужчина снова обретает уверенность, ему хочется самоутвердиться в глазах той, кто не видел его в момент уязвимости. Он выбирает ту, которая видит в нём победителя, а не «проект по спасению». Это звучит несправедливо и больно, но это динамика, в которую попадают многие из нас.</p>
-            <p>Урок, который я усвоила ценой своего разбитого сердца: 💔 Нельзя купить любовь ценой своих страданий. Ценность в отношениях измеряется не тем, сколько боли вы «обслужили», и не тем, через какой ад вы прошли вместе. Настоящая ценность — это когда вы уважаете себя настолько, что не позволяете делать из себя «реанимацию».</p>
-            <p><strong>‼ Запомните:</strong></p>
-            <p>Мужчину не нужно «чинить» — если он не готов решать свои проблемы сам, вы лишь отсрочите его рост.<br>Вас ценят не за то, как эффективно вы «обслужили» его кризис, а за то, какую дистанцию и самоуважение вы сохраняете рядом с ним.</p>
-            <p>Хватит быть «удобным сервисом» для восстановления чужих жизней. Начните инвестировать этот ресурс в себя — тогда и мужчина рядом будет тот, кто видит в вас партнёршу, а не спасителя.</p>
+            <p>Вы были для него всем. Но стоило ему «встать на ноги», как он… исчез. Почему доброта не спасает отношения, а часто их убивает?</p>
+            <p>Мужчина, которого «починили», часто видит в спасательнице лишь зеркало своей слабости. Вы для него — напоминание о периоде, когда он не справлялся. А каждому мужчине жизненно важно чувствовать себя сильным героем.</p>
+            <p>Урок, который я усвоила ценой своего разбитого сердца: 💔 Нельзя купить любовь ценой своих страданий.</p>
+            <p>Хватит быть «удобным сервисом» для восстановления чужих жизней. Начните инвестировать этот ресурс в себя.</p>
           </div></div>
           <button class="article-toggle">Читать далее <span class="arrow">▾</span></button>
         </div>
       </article>
 
-    </div>
-
-    <div class="products-slot reveal" id="products-slot">
-      <div class="pulse"></div>
-      <div class="lbl">Products Carousel</div>
-      <p>Здесь будет размещена карусель товаров. Блок готов к интеграции — просто добавьте свой HTML-код карусели.</p>
     </div>
   </div>
 </section>
@@ -549,6 +668,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         <ul>
           <li><a href="#top">Главная</a></li>
           <li><a href="#about">Обо мне</a></li>
+          <li><a href="#products">Услуги</a></li>
           <li><a href="#articles">Статьи</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
@@ -558,7 +678,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         <ul>
           <li><a href="https://t.me/juliuuya" target="_blank" rel="noopener">Telegram @juliuuya</a></li>
           <li><a href="https://t.me/cwvM-N7TfAkxOGMy" target="_blank" rel="noopener">Telegram-канал</a></li>
-          <li><a href="https://vk.com/schastievnytrinovoross" target="_blank" rel="noopener">VK — мероприятия в Новороссийске</a></li>
+          <li><a href="https://vk.com/schastievnytrinovoross" target="_blank" rel="noopener">VK — мероприятия</a></li>
           <li><a href="https://youtube.com/@juliuuya" target="_blank" rel="noopener">YouTube-канал</a></li>
           <li><a href="metaimperiya.html">METAIMPERIYA</a></li>
         </ul>
@@ -573,7 +693,6 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
 
 <a href="https://t.me/juliuuya" target="_blank" rel="noopener" class="tg-bubble" aria-label="Написать в Telegram">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 15.5l-.4 4.1c.6 0 .9-.3 1.2-.6l2.9-2.8 6 4.4c1.1.6 1.9.3 2.2-1l4-18.8.1-.1c.3-1.5-.5-2.1-1.5-1.7L1.5 9.7c-1.5.6-1.5 1.4-.3 1.8l5.5 1.7L19.4 6c.6-.4 1.1-.2.7.2L9.8 15.5z"/></svg>
-  <span class="tip">Написать в Telegram</span>
 </a>
 
 <script>
@@ -610,6 +729,14 @@ document.querySelectorAll('.article-toggle').forEach(btn => {
     }
   });
 });
+
+// Carousel
+const track = document.getElementById('carouselTrack');
+const prev = document.getElementById('carPrev');
+const next = document.getElementById('carNext');
+const scrollAmount = 360;
+prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+next.addEventListener('click', () => track.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
 </script>
 </body>
 </html>
