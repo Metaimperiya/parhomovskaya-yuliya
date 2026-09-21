@@ -12,7 +12,7 @@
 <meta property="og:title" content="Пархомовская Юлия — Божественный проводник, Целитель, Энергопрактик">
 <meta property="og:description" content="Духовный психолог, наставник, целитель. Работаю на уровне сознания и подсознания. МАК-карты, трансформационные игры, медитации.">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:image" content="img/ya-yuliya.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Metaimperiya/parhomovskaya-yuliya/main/img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Пархомовская Юлия — Божественный проводник">
 <meta name="twitter:description" content="Целитель, эмпат, энергопрактик. Более 20 лет духовного развития.">
@@ -80,7 +80,7 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .hero .extra{font-size:15px;color:var(--gold);font-style:italic;margin-bottom:38px}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 .portrait{aspect-ratio:4/5;border-radius:var(--radius);position:relative;overflow:hidden;background:linear-gradient(160deg,#2a1a3d,#1a1024);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(139,107,171,.4)}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .8s var(--ease)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform .8s var(--ease)}
 .portrait:hover img{transform:scale(1.04)}
 .sec-head{max-width:760px;margin-bottom:60px}
 .sec-head h2{font-size:clamp(32px,4.2vw,52px);margin-bottom:16px}
@@ -91,12 +91,11 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .about-text p{margin-bottom:16px}
 .about-text p:last-child{margin-bottom:0}
 
-/* ARTICLES */
 .articles{display:grid;gap:30px}
 .article{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.4s var(--ease)}
 .article:hover{border-color:rgba(212,165,116,.5);box-shadow:0 24px 60px -30px rgba(139,107,171,.3)}
 .article-media{aspect-ratio:16/9;overflow:hidden;background:#1a1024;position:relative}
-.article-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.article-media img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .8s var(--ease)}
 .article:hover .article-media img{transform:scale(1.04)}
 .article-body{padding:34px 36px}
 .article-body h3{font-size:clamp(22px,2.5vw,30px);margin-bottom:14px;line-height:1.25}
@@ -113,14 +112,12 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(26,16,36,.95
 .article.open .article-toggle .arrow{transform:rotate(180deg)}
 .article.open .article-full{max-height:5000px}
 
-/* PRODUCTS PLACEHOLDER */
 .products-slot{margin-top:80px;border:1px dashed rgba(212,165,116,.4);border-radius:22px;padding:60px 30px;text-align:center;background:rgba(212,165,116,.03)}
 .products-slot .lbl{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
 .products-slot p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto}
 .products-slot .pulse{width:12px;height:12px;border-radius:50%;background:var(--gold);margin:0 auto 22px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
 
-/* CONTACTS */
 .contacts{background:linear-gradient(135deg,rgba(139,107,171,.12),rgba(212,165,116,.08));border:1px solid var(--line);border-radius:26px;padding:60px 50px;text-align:center}
 .contacts h2{font-size:clamp(30px,4vw,48px);margin-bottom:20px}
 .contacts p{color:#d8cee0;font-size:17px;margin-bottom:34px;max-width:600px;margin-left:auto;margin-right:auto}
@@ -188,7 +185,14 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </div>
       <div class="portrait reveal">
-        <img src="img/ya-yuliya.png" alt="Пархомовская Юлия — Божественный проводник, целитель, энергопрактик" loading="eager" decoding="async" width="800" height="1000">
+        <img
+          src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png"
+          alt="Пархомовская Юлия — Божественный проводник, целитель, энергопрактик Access, регрессолог, кармолог, нумеролог, трансформационный психолог"
+          title="Пархомовская Юлия — Божественный проводник"
+          loading="eager"
+          decoding="async"
+          width="800"
+          height="1000">
       </div>
     </div>
   </div>
@@ -221,9 +225,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
     </div>
     <div class="articles" id="articlesList">
 
-      <!-- СТАТЬЯ 1 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/bozhestvennyj-provodnik.png" alt="Божественный проводник — Пархомовская Юлия" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Божественный проводник — Пархомовская Юлия, энергопрактик Access, целитель, регрессолог, нумеролог, трансформационный психолог" title="Божественный проводник" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Божественный проводник: обо мне</h3>
           <p class="article-preview">Меня зовут Юлия. Я Проводник Божественных энергий, Духовный психолог, наставник, Целитель, Энергопрактик. Работаю на уровне сознания и подсознания, помогаю людям в решении их проблем…</p>
@@ -239,9 +244,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 2 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/ya-yuliya-ya-provodnik.png" alt="Я — Юлия. Я проводник" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/bozhestvennyj-provodnik-energopraktik-access-tselitel-regressolog-numerolog-transformatsionnyj-psiholog-i-organizator-meropriyatij.png" alt="Я — Юлия. Я проводник. Иду рядом с теми, кто готов вернуться к себе" title="Я — Юлия. Я проводник" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Я — Юлия. Я иду рядом с теми, кто готов вернуться к себе</h3>
           <p class="article-preview">Больше 20 лет я работаю с людьми. Я вижу корень там, где другие работают с последствиями. Я чувствую боль, которая передаётся из поколения в поколение…</p>
@@ -259,9 +265,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 3 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/ty-perestala-doveryat-svoemu-telu.png" alt="Ты перестала доверять своему телу" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/ty-perestala-doveryat-svoemu-telu.png" alt="Ты перестала доверять своему телу — статья Юлии Пархомовской о психосоматике" title="Ты перестала доверять своему телу" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Ты перестала доверять своему телу</h3>
           <p class="article-preview">Ты не заметила, как это произошло. Когда-то ты чувствовала своё тело. Знала, когда оно хочет есть, а когда просто просит воды…</p>
@@ -285,9 +292,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 4 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/pochemu-ty-perestala-slyshat-sebya.png" alt="Почему ты перестала слышать себя — 5 причин" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/pochemu-ty-perestala-slyshat-sebya.png" alt="Почему ты перестала слышать себя — 5 причин, которые заглушают голос души" title="Почему ты перестала слышать себя" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Почему ты перестала слышать себя? 5 причин, которые заглушают голос души</h3>
           <p class="article-preview">Ты ищешь ответы у других. Ты ходишь к специалистам, читаешь книги, слушаешь подкасты. Но внутри всё так же тихо…</p>
@@ -307,9 +315,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 5 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/ty-ustala-iskat-otvety.png" alt="Ты устала искать ответы у других" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/ty-ustala-iskat-otvety.png" alt="Ты устала искать ответы у других — пришло время услышать себя" title="Ты устала искать ответы у других" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Ты устала искать ответы у других. Пришло время услышать себя</h3>
           <p class="article-preview">Ты ходишь к психологам, тарологам, наставникам, гуру. Ты читаешь книги, смотришь вебинары, собираешь практики…</p>
@@ -329,9 +338,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 6 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/ty-perestal-zhit-i-nachal-vyzhivat.png" alt="Ты перестал жить и начал выживать" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/ty-perestal-zhit-i-nachal-vyzhivat.png" alt="Ты перестал жить и начал выживать — медитация для возвращения к себе" title="Ты перестал жить и начал выживать" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Ты перестал жить и начал выживать?</h3>
           <p class="article-preview">Эта медитация поможет тебе вернуть себя. Я знаю это состояние. Когда ты не живёшь, а выживаешь. Когда внутри — пустота, а вокруг — клетка…</p>
@@ -350,9 +360,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 7 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/esli-ty-rodilas.png" alt="Если ты родилась 9, 18 или 27 числа" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/esli-ty-rodilas.png" alt="Если ты родилась 9, 18 или 27 числа — нумерология, энергия 9, воин" title="Если ты родилась 9, 18 или 27 числа" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Если ты родилась 9, 18 или 27 числа — этот пост для тебя</h3>
           <p class="article-preview">Ты — воин. И это твой крест и твой дар. Ты знаешь это чувство, когда внутри — огонь, а снаружи — лёд?🔥…</p>
@@ -377,9 +388,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 8 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/ya-perestala-zhdat-chto-menya-pojmut.png" alt="Я перестала ждать, что меня поймут" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/ya-perestala-zhdat-chto-menya-pojmut.png" alt="Я перестала ждать, что меня поймут — личная история Юлии Пархомовской" title="Я перестала ждать, что меня поймут" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>«Я перестала ждать, что меня поймут. И вот что случилось»</h3>
           <p class="article-preview">Я очень долго жила с ощущением, что я «неудобная». Что если я скажу о том, что мне больно — меня не поймут…</p>
@@ -402,9 +414,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 9 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/vstrecha-s-vysshim-ya.png" alt="Встреча с Высшим Я в период Коридора Затмений" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/vstrecha-s-vysshim-ya.png" alt="Встреча с Высшим Я в период Коридора Затмений — целительская сессия" title="Встреча с Высшим Я" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>«Встреча с Высшим Я» в период Коридора Затмений</h3>
           <p class="article-preview">Ты давно не слышишь себя? Словно внутри тишина, а жизнь идёт мимо. Потерял(а) себя, оборвалась связь с душой, накрывает апатия, пустота, депрессия…</p>
@@ -422,9 +435,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 10 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/kak-privlech-muzhchinu-gotovogo-k-zrelym-otnosheniyam.png" alt="Как привлечь мужчину, готового к зрелым отношениям" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/kak-privlech-muzhchinu-gotovogo-k-zrelym-otnosheniyam.png" alt="Как привлечь мужчину, готового к зрелым отношениям — психология отношений" title="Как привлечь мужчину, готового к зрелым отношениям" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Как привлечь мужчину, готового к зрелым отношениям?</h3>
           <p class="article-preview">Пока вы ждёте чуда, находясь в ожидании «исцеления» или соглашаясь на полумеры из страха остаться одной, в вашу жизнь не придёт никто зрелый…</p>
@@ -440,9 +454,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 11 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/pochemu-zrelye-granitsy-pugayut-teh-kto-privyk-brat.png" alt="Почему зрелые границы пугают тех, кто привык брать" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/pochemu-zrelye-granitsy-pugayut-teh-kto-privyk-brat.png" alt="Почему зрелые границы пугают тех, кто привык брать" title="Почему зрелые границы пугают тех, кто привык брать" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Почему зрелые границы пугают тех, кто привык брать?</h3>
           <p class="article-preview">Знаете, что происходит с мужчиной, когда женщина перестаёт быть для него «удобным донором» и психотерапевтом? Он уходит. 🤎</p>
@@ -458,9 +473,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 12 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/pochemu-my-zastrevaem-v-roli-spasatelnitsy.png" alt="Почему мы застреваем в роли спасательницы" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/pochemu-my-zastrevaem-v-roli-spasatelnitsy.png" alt="Почему мы застреваем в роли спасательницы — психология отношений" title="Почему мы застреваем в роли спасательницы" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Почему мы застреваем в роли спасательницы?</h3>
           <p class="article-preview">Знакома ли вам ситуация: мужчина рядом вроде бы есть, но он эмоционально или юридически недоступен?..</p>
@@ -477,9 +493,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
         </div>
       </article>
 
-      <!-- СТАТЬЯ 13 -->
       <article class="article reveal">
-        <div class="article-media"><img src="img/gorkaya-pravda.png" alt="Горькая правда — почему он уходит, когда становится нормальным" loading="lazy"></div>
+        <div class="article-media">
+          <img src="img/gorkaya-pravda.png" alt="Горькая правда — почему он уходит, когда становится нормальным" title="Горькая правда: почему он уходит" loading="lazy" decoding="async">
+        </div>
         <div class="article-body">
           <h3>Горькая правда: почему он уходит, когда становится «нормальным»?</h3>
           <p class="article-preview">Вы отдавали ему всё: своё время, заботу, уют, терпение. Вы выслушивали его жалобы на бывших, помогали переживать разводы, лечили его «душевные раны»…</p>
@@ -498,7 +515,6 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#120a1c}
 
     </div>
 
-    <!-- МЕСТО ПОД КАРУСЕЛЬ ТОВАРОВ -->
     <div class="products-slot reveal" id="products-slot">
       <div class="pulse"></div>
       <div class="lbl">Products Carousel</div>
@@ -574,7 +590,6 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Аккордеон статей
 document.querySelectorAll('.article-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const article = btn.closest('.article');
